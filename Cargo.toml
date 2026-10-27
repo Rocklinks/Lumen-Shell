@@ -1,0 +1,18 @@
+[package]
+name = "lumen-shell"
+version = "0.1.0"
+edition = "2021"
+description = "Lightweight GNOME-style top bar, dock and app grid for XFCE (X11 + Wayland/labwc). std-only, zero crates."
+
+[[bin]]
+name = "lumen"
+path = "src/main.rs"
+
+[dependencies]
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true
+panic = "unwind"

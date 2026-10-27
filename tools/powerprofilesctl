@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "powerprofilesctl $*" >> /tmp/fake_calls.log
+case "$1" in
+  get) echo balanced;;
+  list) printf '  performance:\n    Driver:     platform_profile\n\n* balanced:\n    Driver:     platform_profile\n\n  power-saver:\n    Driver:     platform_profile\n';;
+esac

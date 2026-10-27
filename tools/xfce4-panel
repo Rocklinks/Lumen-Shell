@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import sys, os, ctypes, time, signal
+PID='/tmp/fakepanel.pid'
+if '--quit' in sys.argv:
+    try:
+        os.kill(int(open(PID).read()), signal.SIGTERM)
+    except Exception: pass
+    open('/tmp/fake_panel.log','a').write('QUIT\n'); sys.exit(0)
+ctypes.CDLL(None).prctl(15, b'xfce4-panel', 0, 0, 0)
+open(PID,'w').write(str(os.getpid()))
+open('/tmp/fake_panel.log','a').write('START\n')
+signal.signal(signal.SIGTERM, lambda *a: sys.exit(0))
+while True: time.sleep(1)

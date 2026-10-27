@@ -1,0 +1,10 @@
+#!/bin/bash
+sleep ${FAKE_SLOW:-0}
+echo "nmcli $*" >> /tmp/fake_calls.log
+case "$*" in
+  "radio wifi") echo enabled;;
+  "-t -f ACTIVE,SSID,SIGNAL dev wifi") printf 'yes:HomeNet:78\nno:Cafe\\:Guest:45\n';;
+  "-t -f NAME connection show") printf 'HomeNet\nWired connection 1\n';;
+  *"dev wifi list"*) printf '*:HomeNet:78:WPA2\n :Cafe\\:Guest:45:WPA1 WPA2\n :OpenNet:30:\n :Neighbor:62:WPA2\n';;
+  *"dev wifi connect"*) sleep 1; echo ok;;
+esac

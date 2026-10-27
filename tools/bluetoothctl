@@ -1,0 +1,8 @@
+#!/bin/bash
+sleep ${FAKE_SLOW:-0}
+echo "bluetoothctl $*" >> /tmp/fake_calls.log
+case "$*" in
+  show) printf 'Controller AA:00:00:00:00:01 (public)\n\tName: host\n\tPowered: yes\n\tDiscovering: no\n';;
+  devices) printf 'Device 11:22:33:44:55:66 Sony WH-1000XM4\nDevice AA:BB:CC:DD:EE:FF Logitech MX Keys\n';;
+  "devices Connected") printf 'Device 11:22:33:44:55:66 Sony WH-1000XM4\n';;
+esac

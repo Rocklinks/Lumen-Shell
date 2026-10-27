@@ -1,0 +1,11 @@
+#!/bin/bash
+sleep ${FAKE_SLOW:-0}
+echo "pactl $*" >> /tmp/fake_calls.log
+case "$1 $2" in
+  "get-sink-volume @DEFAULT_SINK@") printf 'Volume: front-left: 36044 /  55%% / -15.00 dB,   front-right: 36044 /  55%% / -15.00 dB\n        balance 0.00\n';;
+  "get-sink-mute @DEFAULT_SINK@") echo "Mute: no";;
+  "list short") printf '0\talsa_output.pci-0000_00_1f.3.analog-stereo\tPipeWire\ts32le 2ch 48000Hz\tRUNNING\n1\talsa_output.usb-headset.analog-stereo\tPipeWire\ts16le 2ch 44100Hz\tIDLE\n';;
+  "get-default-sink ") echo "alsa_output.pci-0000_00_1f.3.analog-stereo";;
+esac
+[ "$1" = "get-default-sink" ] && echo "alsa_output.pci-0000_00_1f.3.analog-stereo"
+exit 0

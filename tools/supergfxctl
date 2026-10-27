@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "supergfxctl $*" >> /tmp/fake_calls.log
+case "$1" in -g) echo Hybrid;; -s) echo "[Integrated, Hybrid, AsusMuxDgpu]";; esac
