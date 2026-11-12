@@ -1,0 +1,31 @@
+# Maintainer: Rocklin K S <Rocklin2603@gmail.com>
+pkgname=lumen
+pkgver=0.3.0
+pkgrel=1
+pkgdesc="Lightweight shell for XFCE with GNOME Shell look and feel, built from scratch"
+arch=('x86_64')
+url="https://github.com/Rocklinks/Lumen-Shell"
+license=('MIT')
+# No runtime dependencies: single statically-usable binary, only needs system libc (always present)
+depends=()
+makedepends=()
+optdepends=()
+provides=("${pkgname}")
+conflicts=()
+replaces=()
+backup=()
+options=(!strip)
+install=
+source=("https://github.com/Rocklinks/Lumen-Shell/releases/download/v${pkgver}/lumen-${pkgver}-x86_64.tar.gz")
+# If building from a local prebuilt binary instead, comment source above and uncomment below:
+# source=("lumen-${pkgver}")
+noextract=()
+sha256sums=('SKIP')
+
+package() {
+    install -d "${pkgdir}/usr/bin"
+    install -d "${pkgdir}/usr/share/doc/${pkgname}"
+    install -m 0755 "${srcdir}/lumen" "${pkgdir}/usr/bin/lumen"
+    install -m 0644 "${srcdir}/README.md" "${pkgdir}/usr/share/doc/${pkgname}/README"
+    install -m 0644 "${srcdir}/COPYING" "${pkgdir}/usr/share/doc/${pkgname}/copyright" 2>/dev/null || :
+}
