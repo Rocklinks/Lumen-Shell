@@ -4,7 +4,7 @@ Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --
 
 <div align="center">
 
-[![Make xfce look more modern with lumen shell](https://img.youtube.com/vi/DHZEsGxJqhU/maxresdefault.jpg)](https://youtu.be/DHZEsGxJqhU)
+[![Make xfce look more modern with lumen shell](lumen-thumb-play.jpg)](https://youtu.be/DHZEsGxJqhU)
 
 </div>
 
