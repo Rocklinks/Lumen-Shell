@@ -1,8 +1,8 @@
-# Lumen round 14
+# Lumen Shell v0.5.0 — What's New
 
 Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --release`, no extra crates).
 
-## What changed
+## What's New
 - **Launcher**: an app pinned to the dock disappears from the grid (and from its folder) at once; unpinning brings it back.
   Works for right-click Pin/Unpin, drag to the dock, and the Pinned Apps page. A folder whose apps are all pinned closes.
   New-folder auto name follows GNOME's `_findBestFolderName`: first category all apps share, named like gnome-menus
