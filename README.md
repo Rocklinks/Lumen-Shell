@@ -4,10 +4,7 @@ Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --
 
 <div align="center">
 
-<!-- To get the inline video player, replace the image line below with the
-     user-attachments URL on its own line, centered in this div -->
-
-[![Lumen Shell Demo](lumen-thumb-play.jpg)](lumen.mp4)
+[![Make xfce look more modern with lumen shell](https://img.youtube.com/vi/DHZEsGxJqhU/maxresdefault.jpg)](https://youtu.be/DHZEsGxJqhU)
 
 </div>
 
