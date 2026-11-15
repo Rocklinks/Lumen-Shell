@@ -4,8 +4,8 @@ Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --
 
 <div align="center">
 
-<!-- When you get the user-attachments URL from https://github.com/Rocklinks/Lumen-Shell/issues/2,
-     replace the line below with it (on its own line) to get the inline video player like JaKooLit's README -->
+<!-- To get the inline video player, replace the image line below with the
+     user-attachments URL on its own line, centered in this div -->
 
 [![Lumen Shell Demo](lumen-thumb-play.jpg)](lumen.mp4)
 
