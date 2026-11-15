@@ -2,7 +2,14 @@
 
 Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --release`, no extra crates).
 
+<div align="center">
+
+<!-- When you get the user-attachments URL from https://github.com/Rocklinks/Lumen-Shell/issues/2,
+     replace the line below with it (on its own line) to get the inline video player like JaKooLit's README -->
+
 [![Lumen Shell Demo](lumen-thumb-play.jpg)](lumen.mp4)
+
+</div>
 
 ## What's New
 - **Launcher**: an app pinned to the dock disappears from the grid (and from its folder) at once; unpinning brings it back.
