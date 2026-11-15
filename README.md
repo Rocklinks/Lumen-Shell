@@ -2,7 +2,7 @@
 
 Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --release`, no extra crates).
 
-![Lumen Shell demo](lumen.mp4)
+[![Lumen Shell Demo](lumen-thumb.jpg)](lumen.mp4)
 
 ## What's New
 - **Launcher**: an app pinned to the dock disappears from the grid (and from its folder) at once; unpinning brings it back.
