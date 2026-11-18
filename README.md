@@ -1,4 +1,4 @@
-# Lumen Shell v0.6.0 — Round 16
+# Lumen Shell v0.6.0 
 
 Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --release`, no extra crates).
 
@@ -31,9 +31,7 @@ Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --
   the theme" (the bar and dock always follow the Color Scheme), and the Notifications "Service" group. Old config keys
   are ignored. "Hide Battery Icon" stays on the Power page.
 
-## Checked
-`cargo test --workspace`: all pass (shell 84; new: calculator, GPU detection, tray takeover with a real `dbus-daemon`,
-Run Command protocol with a fake phone). Live in Xvfb with openbox, picom and xfwm4 (compositing): launcher click and
-calculator (clipboard checked), dock extend + trash, indicator styles on bottom and left docks, Settings and Connect dock
-icons, sidebar with a GTK theme, scheme switching, pairing with a fake phone (`cargo run --example peer`).
-Confirm on your machine: real Android pairing and Run Command list, a second tray host, an NVIDIA laptop.
+
+##how to Run this
+Just Download the lumen binary file, make it executable and move it the .local/bin
+
