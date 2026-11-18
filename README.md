@@ -1,33 +1,39 @@
-# Lumen Shell v0.5.0 — What's New
+# Lumen Shell v0.6.0 — Round 16
 
 Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --release`, no extra crates).
 
 <div align="center">
 
-[![Make xfce look more modern with lumen shell](lumen-thumb-play.jpg)](https://youtu.be/DHZEsGxJqhU)
+![Lumen Shell demo](lumen-thumb-play.jpg)
 
 </div>
 
-## What's New
-- **Launcher**: an app pinned to the dock disappears from the grid (and from its folder) at once; unpinning brings it back.
-  Works for right-click Pin/Unpin, drag to the dock, and the Pinned Apps page. A folder whose apps are all pinned closes.
-  New-folder auto name follows GNOME's `_findBestFolderName`: first category all apps share, named like gnome-menus
-  (Accessories, Programming, Universal Access, Sound & Video, ...), else "Unnamed Folder". Rename, drag-out ungroup,
-  delete-on-last-app unchanged (they already matched GNOME).
-- **Lumen Connect scan**: "Scan for Devices" row (Quick Settings > Lumen Connect, and Mobile Settings) shows a spinner and
-  "Scanning for devices…" for 8 s, announces again after 3 s. Discovery now announces on *every* network (Wi-Fi, Ethernet,
-  your PC's hotspot, a phone's hotspot) with directed broadcast + the default gateway, and re-announces within 3 s when a
-  network appears. Before, one broadcast left via the default route only, so hotspot networks were missed.
-- **Clipboard**: no `xclip`/`xsel`. Own X11 selection client in Rust (`clip.rs`). Texts up to ~200 KB. Wayland sessions
-  use `wl-copy`/`wl-paste` when installed.
-- **Settings**: sidebar is fixed (only the content scrolls). Rows with 3+ choices (Power Mode, Appearance Style, Sound
-  connector) are GNOME dropdowns. "Change Background…" removed; click the wallpaper preview to pick a picture.
-- **Dock & Bar**: Blur option and all blur code removed.
-- **Settings icon**: colored theme icon first, then a built-in gear, then symbolic stand-ins, so it never vanishes.
-  More Settings icon names are tried; themes installed while Lumen runs are re-read.
+## What changed
+- **Lumen Connect > Run Command**: the phone's "add command" button now opens that phone's page (it used to only open the
+  device list). Name and Command fields keep what you typed when you move between them, and there is an **Add Command**
+  button. The command list is pushed to the phone on every add/remove, as before.
+- **Lumen Connect pairing view**: a paired device never shows a leftover "Waiting for the other device… / Cancel" row.
+- **Window drawing (all shell windows)**: frames are built in an off-screen pixmap and copied to the window in one request,
+  so a compositor (xfwm4) can no longer show a half-updated window while the content is being sent.
+- **Tray**: Lumen queues for `org.kde.StatusNotifierWatcher`. When another tray host that owned it exits, Lumen takes it
+  over at once and announces itself, so apps started afterwards show their icons here.
+- **Launcher**: the search box can be clicked (it used to close the launcher). Type `12*(3+4)`, `10/4`, `2^8`, `7%3`,
+  `6×7`: the answer shows under the box, Enter or a click copies it. Ctrl+V pastes into the search.
+- **Dock**: the trash stays next to the last app when "extend to edge" is on; only the launcher goes to the far end.
+  New Dock & Bar options: **Indicator Position** (Automatic / Bottom / Top / Left / Right) and **Indicator Style**
+  (Dot / Square / Dash). Dock colours follow the Color Scheme (light and dark).
+- **Settings on the dock**: an open Settings window lights up its pinned icon; Lumen Connect gets a temporary icon.
+  Icons come from the icon theme, with the generic fallback.
+- **GPU switcher**: the Quick Settings tile appears only when an NVIDIA card is present (PCI vendor 0x10de). No NVIDIA:
+  no tile, no GPU jobs.
+- **Settings sidebar** uses the GTK theme's `sidebar_bg_color` when the theme defines one, else a tint of the window colour.
+- **Removed**: Activities hot corner (code, setting and capability), the whole "Top Bar Elements" group, "Top bar follows
+  the theme" (the bar and dock always follow the Color Scheme), and the Notifications "Service" group. Old config keys
+  are ignored. "Hide Battery Icon" stays on the Power page.
 
-## Tested
-`cargo test --workspace` under Xvfb: all pass (new: clipboard round trip + xclip interop, route/gateway parsing, built-in icon).
-NOT tested on a real desktop: dropdown/preview click look, spinner look, pinned-hide while dragging, hotspot discovery
-(needs a phone). If the Settings icon still shows a letter, tell me the icon theme name.
-Firewall: allow UDP/TCP 1714-1764 for Lumen Connect.
+## Checked
+`cargo test --workspace`: all pass (shell 84; new: calculator, GPU detection, tray takeover with a real `dbus-daemon`,
+Run Command protocol with a fake phone). Live in Xvfb with openbox, picom and xfwm4 (compositing): launcher click and
+calculator (clipboard checked), dock extend + trash, indicator styles on bottom and left docks, Settings and Connect dock
+icons, sidebar with a GTK theme, scheme switching, pairing with a fake phone (`cargo run --example peer`).
+Confirm on your machine: real Android pairing and Run Command list, a second tray host, an NVIDIA laptop.
