@@ -32,6 +32,6 @@ Binary: `lumen` (release, stripped). Source: `lumen-src.tar.gz` (`cargo build --
   are ignored. "Hide Battery Icon" stays on the Power page.
 
 
-##how to Run this
+## How to Run this
 Just Download the lumen binary file, make it executable and move it the .local/bin
 
