@@ -71,6 +71,18 @@ Checked under Xvfb: strip is 1366x2 at the bottom edge, the pointer over the des
 - Still not done: Lumen Connect SMS, media and remote-input plugins; per-device outgoing clipboard.
 - `lite-shell.tar.gz` is the rofi + polybar + waybar alternative, see its README. It measured heavier than lumen at idle.
 
+## Also not Tested — Round 14
+- Drag-to-folder: dragging an app onto another app to make a folder, onto a folder to fill it, or onto the sides to reorder. "Compiles; NOT tested by drag in Xvfb" — only the click-to-create folder flow (Round 13) was Xvfb-tested.
+- Real NetworkManager scanning while the Wi-Fi page is open ("NOT tested: real NetworkManager scanning", Round 14).
+- Lumen Connect SMS, media and remote-input plugins; per-device outgoing clipboard ("Still not done", Round 14).
+- `lite-shell.tar.gz` (the rofi + polybar + waybar alternative) — only measured, not compared A/B.
+
+## Test (round 14)
+- Bluetooth BlueZ backend over the mock bluetoothd on a private bus (`lumen-bt/tests/bluez_mock.rs`; needs dbus-daemon, python3, dbus-next; skipped otherwise): power, scan, pair, connect, trust, disconnect, forget.
+- Xvfb: AM/PM dropdown (bar shows `12:01 PM`, `24h = false` saved); Window Borders dropdown lists "Follow System Theme" then themes; picking a theme sets SyncThemes false plus the xfwm4 theme.
+
+This README was written with AI assistance.
+
 ## Round 17 fixes
 - Icons: multi-tone dark icons (mouse, trackpad, terminal) keep their inner detail on the dark dock instead of turning into a white blob; apps with no icon use the theme's own unknown-app icon (application-x-executable), letter tile only as last resort.
 - Settings window leaves room for the dock, so the running Settings icon is never covered.
