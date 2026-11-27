@@ -1,0 +1,4 @@
+* linguist-language=Markdown
+*.md linguist-language=Markdown
+*.rmd linguist-language=Markdown
+*. lithuanian=Roff
