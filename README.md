@@ -1,6 +1,6 @@
-# GNOME-like Shell for XFCE
+# lumen - Rust GNOME-like Shell for XFCE
 
-One binary, one Settings — a desktop shell for XFCE (X11), labwc and Cinnamon.
+One binary, one Settings — a desktop shell written in pure Rust, for XFCE (X11), labwc and Cinnamon.
 
 ## Changes
 
