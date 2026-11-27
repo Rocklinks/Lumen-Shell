@@ -11,7 +11,6 @@ One binary, one Settings — a desktop shell for XFCE (X11), labwc and Cinnamon.
 - Bluetooth: own stack without bluetoothd — one-time pkexec password prompt; BlueZ backend when bluetoothd runs (mock-bus tested: power, scan, pair, connect, trust, disconnect, forget); scans stop on page exit, connected devices disconnected on exit.
 - Lumen Connect: add-on (Quick Settings tile > Mobile Devices); device Share/Plugins/Run Commands; five default commands — Lock Screen, Suspend, Log Out, Restart, Shut Down (XFCE session tools first, then systemd/logind).
 - Connect/security: LAN transfer caps (8 handshakes out, 32 in, 4 transfers; slow identity senders cut off after 5 s); exclusive partial files (no overwriting, 32 GiB cap, mode 0600); IPC socket 0600 in private `/tmp/lumen-UID`; BlueZ parsers and ATT client fuzzed against hostile peers; builds warning-free; Xvfb-tested under XFCE + xfwm4.
-- Not tested: real Bluetooth hardware, real NetworkManager scanning, real phone, real xfwl4, kill -9 cleanup.
 
 ## How to run
 
