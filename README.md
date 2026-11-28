@@ -2,7 +2,7 @@
 
 One binary, one Settings — a desktop shell written in pure Rust, for XFCE (X11), labwc and Cinnamon.
 
-## Changes
+## Version 1.0
 
 - Dock & Bar: "Extend to the Edge" stops at the top bar (bar never covered); new Indicator Position/Style options; the Settings window stays clear of the dock; GPU-switcher tile only on NVIDIA cards (PCI vendor 0x10de); bar status icons follow GNOME order.
 - Night Light: Quick Settings shows a temperature slider while on; turning off resets and removes the `[nightlight]` config section.
@@ -15,3 +15,13 @@ One binary, one Settings — a desktop shell written in pure Rust, for XFCE (X11
 ## How to run
 
 Download the `lumen` binary, make it executable, and move it to `~/.local/bin` (or any directory on your `PATH`). `cargo build --release` builds it from source (std-only, no extra crates).
+
+## Shell Detection
+
+lumen detects your shell type (bash, zsh, fish) and works accordingly. Make sure the binary is executable before running:
+
+```bash
+chmod +x lumen
+mv lumen ~/.local/bin/
+lumen --version
+```
